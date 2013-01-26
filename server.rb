@@ -9,6 +9,7 @@ end
 
 load_all_in("")
 load_all_in("engines")
+load_all_in("controllers")
 
 class IsItOpen < Sintra::Base
 
