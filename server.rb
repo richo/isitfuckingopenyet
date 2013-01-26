@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require 'json'
+require 'net/http'
 require 'sinatra'
 
 def load_all_in(path)
@@ -11,7 +13,7 @@ load_all_in("")
 load_all_in("engines")
 load_all_in("controllers")
 
-class IsItOpen < Sintra::Base
+class IsItOpen < Sinatra::Base
 
   get '/' do
     erb :index
