@@ -32,7 +32,10 @@ module Engines
       end
 
       if resp.is_a?(Net::HTTPSuccess)
-        data = JSON.parse(resp.body)
+        respbody = resp.body
+        respbody.sub!(/\A[^\[]*/, "")
+        respbody.sub!(/[^\]]*\z/, "")
+        data = JSON.load(respbody)
       end
     end
 
