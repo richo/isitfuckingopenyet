@@ -19,6 +19,24 @@ module Engines
     end
 
     def stores
+      fetch_data.map do |record|
+        Store.new(:hours => get_hours(record), :location => record["Street"])
+      end
+    end
+
+    def get_hours(record)
+      {
+        :monday => record["MonHours"],
+        :tuesday => record["TuesHours"],
+        :wednesday => record["WedHours"],
+        :thursday => record["ThursHours"],
+        :friday => record["FriHours"],
+        :saturday => record["SatHours"],
+        :sunday => record["SunHours"]
+      }
+    end
+
+    def fetch_data
       uri = URI(backend_url)
       uri.query = URI.encode_www_form(query_params)
 
