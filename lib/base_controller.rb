@@ -7,5 +7,7 @@ class BaseController
 
 
   def location
+    UserLocation.new
   end
+
 end
