@@ -1,9 +1,14 @@
 #!/usr/bin/env ruby
 require 'sinatra'
 
-Dir["#{File.expand_path("../lib", __FILE__)}/*.rb"].each do |file|
-  require file
+def load_all_in(path)
+  Dir["#{File.expand_path("../lib/#{path}", __FILE__)}/*.rb"].each do |file|
+    require file
+  end
 end
+
+load_all_in("")
+load_all_in("engines")
 
 class IsItOpen < Sintra::Base
 
