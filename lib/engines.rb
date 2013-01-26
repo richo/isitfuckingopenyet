@@ -1,6 +1,7 @@
 module Engines
+  ENGINES = {}
   def self.[](key)
-    if (engine = self.const_get(key))
+    if (engine = ENGINES[key])
       return engine
     else
       raise "No Such Engine"

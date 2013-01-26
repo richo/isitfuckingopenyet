@@ -12,4 +12,5 @@ module Engines
       location.latlong[:lon]
     end
   end
+  ENGINES["woolworths"] = Woolworths
 end
