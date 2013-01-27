@@ -20,7 +20,7 @@ class IsItOpen < Sinatra::Base
   end
 
   get '/search' do
-    erb :search
+    erb :search, :locals => {:engines => Engines::ENGINES}
   end
 
   post '/search' do

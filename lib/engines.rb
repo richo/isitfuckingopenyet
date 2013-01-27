@@ -10,6 +10,10 @@ module Engines
 
   class Base
 
+    def self.display_name
+      name
+    end
+
     def fetch
       uri = URI(FETCH_URL)
       req = Net::HTTP.get(uri)
