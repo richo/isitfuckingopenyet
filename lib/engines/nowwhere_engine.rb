@@ -16,16 +16,33 @@ module Engines
       end
     end
 
+    def parse_hours(hrs)
+      from_to = hrs.split(" - ").map do |h|
+        if h =~ /(\d{1,2})[:.](\d{1,2}) ?(am|pm)/i
+          hours = $1.to_i
+          mins = $2.to_i
+          ampm = $3
+          if ampm.upcase == "PM"
+            hours += 12
+          end
+          TimeWithoutDate.new(hours, mins)
+        else
+          raise "Invalid time specified: #{h}"
+        end
+      end
+      return Hours.new(*from_to)
+    end
+
     def get_hours(record)
-      {
-        :monday => record["MonHours"],
-        :tuesday => record["TuesHours"],
-        :wednesday => record["WedHours"],
-        :thursday => record["ThursHours"],
-        :friday => record["FriHours"],
-        :saturday => record["SatHours"],
-        :sunday => record["SunHours"]
-      }
+      [
+        parse_hours(record["SunHours"]),
+        parse_hours(record["MonHours"]),
+        parse_hours(record["TuesHours"]),
+        parse_hours(record["WedHours"]),
+        parse_hours(record["ThursHours"]),
+        parse_hours(record["FriHours"]),
+        parse_hours(record["SatHours"])
+      ]
     end
 
     def fetch_data(loc)
