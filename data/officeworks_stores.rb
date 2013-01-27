@@ -2774,3 +2774,12 @@ OFFICEWORKS_STORES = [
        "hoursDetail": "Sunday 27 Jan : 9am - 7pm,Monday 28 Jan : 9am - 6pm,Tuesday 29 Jan : 7am - 10pm,Wednesday 30 Jan : 7am - 10pm,Thursday 31 Jan : 7am - 10pm,Friday 1 Feb : 7am - 9pm,Saturday 2 Feb : 8am - 6pm,"
      }
 ]
+
+def OFFICEWORKS_STORES.within(distance, location)
+  self.map do |store|
+    if (store["lat"].to_f - location.lat).abs < distance &&
+       (store["lon"].to_f - location.lon).abs < distance
+      store
+    end
+  end.compact
+end
