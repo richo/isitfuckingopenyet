@@ -5,7 +5,7 @@ module Engines
     class << self
 
       def display_name
-        "officeworks"
+        "Officeworks"
       end
 
     end
