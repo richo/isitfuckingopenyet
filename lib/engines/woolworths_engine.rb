@@ -1,5 +1,6 @@
 module Engines
   class Woolworths < NowWhere
+
     def nowwhere_app_name
       "woolworths".freeze
     end
@@ -11,6 +12,7 @@ module Engines
     def lon
       location.latlong[:lon]
     end
+
   end
   ENGINES["woolworths"] = Woolworths
 end
