@@ -14,11 +14,11 @@ class Location
   end
 
   def lat
-    @lat ||= opts[:lat] || get_lat
+    @lat ||= (opts[:lat] || get_lat).to_f
   end
 
   def lon
-    @lon ||= opts[:lon] || get_lon
+    @lon ||= (opts[:lon] || get_lon).to_f
   end
 
   def get_postcode
