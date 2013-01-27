@@ -31,8 +31,8 @@ module Engines
     def fetch_data(loc)
       uri = URI(backend_url)
       uri.query = URI.encode_www_form({
-        "x" => loc.lat,
-        "y" => loc.lon,
+        "x" => loc.lon,
+        "y" => loc.lat,
         "storeType" => ""
       })
 
