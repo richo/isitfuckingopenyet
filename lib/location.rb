@@ -26,11 +26,11 @@ class Location
   end
 
   def get_lat
-    POSTCODES[postcode][4]
+    POSTCODES[postcode][5]
   end
 
   def get_lon
-    POSTCODES[postcode][5]
+    POSTCODES[postcode][4]
   end
 
 end
