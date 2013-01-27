@@ -1,5 +1,5 @@
 module Engines
-  class Woolworths < Base
+  class Woolworths < NowWhere
     def nowwhere_app_name
       "woolworths".freeze
     end
