@@ -10,7 +10,8 @@ module Engines
 
     end
 
-    def stores
+    def stores(loc)
+      OFFICEWORKS_STORES.within(0.05, loc)
     end
 
   end
