@@ -8,7 +8,6 @@ describe Hours do
     hours = Hours.new(from, to)
 
     hours.should include now
-
   end
 
   it "Should include times the next morning" do
@@ -20,6 +19,5 @@ describe Hours do
     hours = Hours.new(from, to)
 
     hours.should include now
-
   end
 end
