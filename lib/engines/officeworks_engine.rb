@@ -11,7 +11,14 @@ module Engines
     end
 
     def stores(loc)
-      OFFICEWORKS_STORES.within(0.05, loc)
+      OFFICEWORKS_STORES.within(0.05, loc).map do |s|
+        Store.new(
+          :hours => Hours.new(0, 0),
+          :location => Location.new(:lat => s['lat'],
+                       :lon => s['lon'])
+        )
+      end
+
     end
 
   end
